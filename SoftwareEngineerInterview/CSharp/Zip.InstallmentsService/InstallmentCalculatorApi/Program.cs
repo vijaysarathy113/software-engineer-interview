@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PremiumCalculator.Models.DbModels;
 using Zip.InstallmentsService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,13 +14,12 @@ builder.Services.AddApiVersioning(api =>
     api.AssumeDefaultVersionWhenUnspecified = true;
     api.ReportApiVersions = true;
 });
-
+builder.Services.AddDbContext<InstallmentCalculatorDbContext>(options => options.UseInMemoryDatabase(databaseName: "InstallmentCalculatorDb"));
 builder.Services.AddScoped<PaymentPlanFactory>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

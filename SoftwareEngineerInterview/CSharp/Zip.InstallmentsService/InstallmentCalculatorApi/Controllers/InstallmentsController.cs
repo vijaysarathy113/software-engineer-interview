@@ -1,5 +1,4 @@
 ﻿using InstallmentCalculatorApi.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Zip.InstallmentsService;
 
@@ -27,7 +26,7 @@ namespace InstallmentCalculatorApi.Controllers
                 if (purchaseAmount <= 0)
                     return BadRequest($"{nameof(purchaseAmount)} {purchaseAmount} is invalid");
                 PaymentPlan PaymentPlan = _paymentPlanFactory.CreatePaymentPlan(purchaseAmount);
-                if (PaymentPlan.Id == Guid.Empty)
+                if (PaymentPlan == null)
                     return StatusCode(StatusCodes.Status500InternalServerError);
 
                 var installment = PaymentPlan.Installments.Select(i => new InstallmentResponse { PurchaseAmount = i.Amount, DueDate = i.DueDate });
@@ -38,7 +37,6 @@ namespace InstallmentCalculatorApi.Controllers
                 _logger.LogError($"{nameof(InstallmentsController)} {nameof(Get)} {ex.Message} {ex.StackTrace}");
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
-
         }
     }
 }

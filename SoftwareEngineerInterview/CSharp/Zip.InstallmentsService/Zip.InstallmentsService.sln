@@ -6,7 +6,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zip.InstallmentsService", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zip.InstallmentsService.Test", "Zip.InstallmentsService.Test\Zip.InstallmentsService.Test.csproj", "{DF298FE5-362D-44BD-AD57-7DFC04CEB8B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallmentCalculatorApi", "InstallmentCalculatorApi\InstallmentCalculatorApi.csproj", "{CD4C8CDF-4794-44D3-83A9-C7378D9333BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstallmentCalculatorApi", "InstallmentCalculatorApi\InstallmentCalculatorApi.csproj", "{CD4C8CDF-4794-44D3-83A9-C7378D9333BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

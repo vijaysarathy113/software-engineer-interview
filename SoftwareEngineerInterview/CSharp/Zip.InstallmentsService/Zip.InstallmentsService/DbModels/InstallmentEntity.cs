@@ -3,9 +3,9 @@ using System;
 namespace Zip.InstallmentsService
 {
     /// <summary>
-    /// Data structure which defines all the properties for an installment.
+    /// Database Entity which defines all the properties for an installment.
     /// </summary>
-    public class Installment
+    public class InstallmentEntity
     {
         /// <summary>
         /// Gets or sets the unique identifier for each installment.
@@ -20,6 +20,8 @@ namespace Zip.InstallmentsService
         /// <summary>
         /// Gets or sets the amount of the installment.
         /// </summary>
-        public decimal Amount { get; set; }     
+        public decimal Amount { get; set; }
+        public PaymentPlanEntity PaymentPlan { get; set; }
+        public Guid PaymentPlanId { get; set; }
     }
 }
